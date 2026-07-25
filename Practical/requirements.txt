@@ -1,10 +1,12 @@
-Student-Registration-Flask/
-│── app.py
-│── requirements.txt
+Weather-App-Flask/
+│
+├── app.py
+├── requirements.txt
 │
 ├── templates/
-│   ├── index.html
-│   └── success.html
+│     ├── index.html
 │
 ├── static/
-│   ├── style.css
+│     ├── style.css
+│
+└── assets/

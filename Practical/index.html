@@ -1,147 +1,130 @@
-{% comment %} First store this file in the templates folder {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration Form</title>
+
+    <title>Flask Weather App</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
+
     <div class="container">
-        <h1>🎓 Student Registration Form</h1>
-        <p class="subtitle">
-            Please fill in your details to complete the registration.
-        </p>
-        <form action="/register" method="POST" enctype="multipart/form-data">
-            <div class="row">
-                <div class="input-box">
-                    <label>Full Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter your full name"
-                        required>
-                </div>
-                <div class="input-box">
-                    <label>Email Address</label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-box">
-                    <label>Phone Number</label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        placeholder="9876543210"
-                        pattern="[0-9]{10}"
-                        required>
-                </div>
-                <div class="input-box">
-                    <label>Date of Birth</label>
-                    <input
-                        type="date"
-                        name="dob"
-                        required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-box">
-                    <label>Gender</label>
-                    <select name="gender" required>
-                        <option value="">Select Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <label>Course</label>
-                    <select name="course" required>
-                        <option value="">Select Course</option>
-                        <option>Computer Engineering</option>
-                        <option>Information Technology</option>
-                        <option>Artificial Intelligence</option>
-                        <option>Electronics Engineering</option>
-                        <option>Mechanical Engineering</option>
-                        <option>Civil Engineering</option>
-                    </select>
-                </div>
-            </div>
-            <div class="input-box">
-                <label>Address</label>
-                <textarea
-                    name="address"
-                    rows="3"
-                    placeholder="Enter your address"
-                    required></textarea>
-            </div>
-            <div class="row">
-                <div class="input-box">
-                    <label>City</label>
+
+        <div class="weather-card">
+
+            <h1>🌦 Weather App</h1>
+
+            <p class="subtitle">
+                Search weather by city
+            </p>
+
+            <form method="POST">
+
+                <div class="search-box">
+
                     <input
                         type="text"
                         name="city"
-                        placeholder="City"
+                        placeholder="Enter City Name"
                         required>
+
+                    <button type="submit">
+
+                        Search
+
+                    </button>
+
                 </div>
-                <div class="input-box">
-                    <label>State</label>
-                    <input
-                        type="text"
-                        name="state"
-                        placeholder="State"
-                        required>
+
+            </form>
+
+            {% if error %}
+
+            <div class="error">
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+            {% if weather %}
+
+            <div class="result">
+
+                <h2>
+
+                    {{ weather.city }}, {{ weather.country }}
+
+                </h2>
+
+                <img
+                    src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"
+                    alt="Weather Icon">
+
+                <h3>
+
+                    {{ weather.description }}
+
+                </h3>
+
+                <div class="temperature">
+
+                    {{ weather.temperature }} °C
+
                 </div>
+
+                <table>
+
+                    <tr>
+
+                        <td>🌡 Feels Like</td>
+
+                        <td>{{ weather.feels_like }} °C</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>💧 Humidity</td>
+
+                        <td>{{ weather.humidity }} %</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>🌬 Wind Speed</td>
+
+                        <td>{{ weather.wind }} m/s</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>📊 Pressure</td>
+
+                        <td>{{ weather.pressure }} hPa</td>
+
+                    </tr>
+
+                </table>
+
             </div>
-            <div class="row">
-                <div class="input-box">
-                    <label>PIN Code</label>
-                    <input
-                        type="text"
-                        name="pincode"
-                        placeholder="400001"
-                        pattern="[0-9]{6}"
-                        required>
-                </div>
-                <div class="input-box">
-                    <label>Profile Photo</label>
-                    <input
-                        type="file"
-                        name="photo"
-                        accept="image/*">
-                </div>
-            </div>
-            <div class="input-box">
-                <label>Comments</label>
-                <textarea
-                    name="comments"
-                    rows="4"
-                    placeholder="Write something about yourself..."></textarea>
-            </div>
-            <div class="checkbox">
-                <input
-                    type="checkbox"
-                    required>
-                <label>
-                    I confirm that all the information provided is correct.
-                </label>
-            </div>
-            <div class="buttons">
-                <button type="reset">
-                    Reset
-                </button>
-                <button type="submit">
-                    Register
-                </button>
-            </div>
-        </form>
+
+            {% endif %}
+
+        </div>
+
     </div>
+
 </body>
+
 </html>
