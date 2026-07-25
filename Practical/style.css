@@ -1,538 +1,154 @@
-/* ===========================
-   Google Font
-=========================== */
-
 * {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
-     font-family: 'Poppins', sans-serif;
+     font-family: Segoe UI, Arial, sans-serif;
 }
-
-/* ===========================
-   Body
-=========================== */
 
 body {
-
-     min-height: 100vh;
-
+     height: 100vh;
      display: flex;
-
      justify-content: center;
-
      align-items: center;
-
-     background: linear-gradient(-45deg, #6a11cb, #2575fc, #00c9ff, #92fe9d);
-
-     background-size: 400% 400%;
-
-     animation: gradientBG 15s ease infinite;
-
-     overflow-x: hidden;
-
-     padding: 30px;
-
+     background: linear-gradient(135deg, #4facfe, #00f2fe, #6a11cb);
+     background-size: 300% 300%;
+     animation: bg 12s infinite alternate;
 }
 
-/* Animated Background */
-
-@keyframes gradientBG {
-
-     0% {
-          background-position: 0% 50%;
+@keyframes bg {
+     from {
+          background-position: left;
      }
 
-     50% {
-          background-position: 100% 50%;
+     to {
+          background-position: right;
      }
-
-     100% {
-          background-position: 0% 50%;
-     }
-
 }
 
-/* ===========================
-   Floating Circles
-=========================== */
+.calculator {
 
-.background {
-
-     position: fixed;
-
-     width: 100%;
-
-     height: 100%;
-
-     left: 0;
-
-     top: 0;
-
-     overflow: hidden;
-
-     z-index: -1;
-
-}
-
-.circle {
-
-     position: absolute;
-
-     border-radius: 50%;
-
-     background: rgba(255, 255, 255, .15);
-
-     animation: float 15s linear infinite;
-
-}
-
-.c1 {
-
-     width: 220px;
-
-     height: 220px;
-
-     left: 5%;
-
-     top: 15%;
-
-}
-
-.c2 {
-
-     width: 300px;
-
-     height: 300px;
-
-     right: 8%;
-
-     bottom: 8%;
-
-}
-
-.c3 {
-
-     width: 160px;
-
-     height: 160px;
-
-     left: 45%;
-
-     top: 70%;
-
-}
-
-@keyframes float {
-
-     0% {
-
-          transform: translateY(0) rotate(0deg);
-
-     }
-
-     50% {
-
-          transform: translateY(-40px) rotate(180deg);
-
-     }
-
-     100% {
-
-          transform: translateY(0) rotate(360deg);
-
-     }
-
-}
-
-/* ===========================
-   Main Container
-=========================== */
-
-.container {
-
-     width: 100%;
-
-     max-width: 650px;
-
-     padding: 35px;
+     width: 360px;
+     background: rgba(25, 25, 25, .95);
 
      border-radius: 25px;
 
-     background: rgba(255, 255, 255, .18);
+     padding: 20px;
 
-     backdrop-filter: blur(18px);
+     box-shadow:
+          0 15px 35px rgba(0, 0, 0, .5);
 
-     border: 1px solid rgba(255, 255, 255, .3);
-
-     box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
-
+     backdrop-filter: blur(10px);
 }
 
-/* ===========================
-   Header
-=========================== */
+.display {
 
-header {
-
-     text-align: center;
-
-     margin-bottom: 30px;
-
+     margin-bottom: 20px;
 }
 
-header h1 {
+.display input {
 
-     color: white;
-
-     font-size: 36px;
-
-     margin-bottom: 10px;
-
-}
-
-header p {
-
-     color: #f1f1f1;
-
-     font-size: 15px;
-
-}
-
-/* ===========================
-   Input Section
-=========================== */
-
-.input-section {
-
-     display: flex;
-
-     gap: 15px;
-
-     margin-bottom: 25px;
-
-}
-
-.input-section input {
-
-     flex: 1;
-
-     padding: 15px;
+     width: 100%;
+     height: 90px;
 
      border: none;
 
      outline: none;
 
-     border-radius: 12px;
+     border-radius: 18px;
 
-     font-size: 16px;
-
-}
-
-.input-section input:focus {
-
-     box-shadow: 0 0 15px rgba(255, 255, 255, .6);
-
-}
-
-.input-section button {
-
-     padding: 15px 25px;
-
-     border: none;
-
-     border-radius: 12px;
-
-     cursor: pointer;
-
-     background: #00c853;
+     background: #111;
 
      color: white;
 
-     font-size: 16px;
+     font-size: 40px;
 
-     transition: .3s;
+     text-align: right;
 
+     padding: 20px;
 }
 
-.input-section button:hover {
-
-     background: #00a846;
-
-     transform: translateY(-2px);
-
-}
-
-/* ===========================
-   Statistics
-=========================== */
-
-.stats {
+.buttons {
 
      display: grid;
 
-     grid-template-columns: repeat(3, 1fr);
+     grid-template-columns: repeat(4, 1fr);
 
      gap: 15px;
-
-     margin-bottom: 25px;
-
 }
 
-.card {
+button {
 
-     text-align: center;
-
-     background: rgba(255, 255, 255, .15);
-
-     padding: 20px;
-
-     border-radius: 15px;
-
-     color: white;
-
-}
-
-.card h3 {
-
-     font-size: 16px;
-
-     margin-bottom: 8px;
-
-}
-
-.card span {
-
-     font-size: 28px;
-
-     font-weight: bold;
-
-}
-
-/* ===========================
-   Task List
-=========================== */
-
-#taskList {
-
-     list-style: none;
-
-     max-height: 350px;
-
-     overflow-y: auto;
-
-     padding-right: 5px;
-
-}
-
-/* Scrollbar */
-
-#taskList::-webkit-scrollbar {
-
-     width: 8px;
-
-}
-
-#taskList::-webkit-scrollbar-thumb {
-
-     background: white;
-
-     border-radius: 20px;
-
-}
-
-/* Task Item */
-
-.task {
-
-     background: rgba(255, 255, 255, .18);
-
-     color: white;
-
-     margin-bottom: 15px;
-
-     border-radius: 15px;
-
-     padding: 15px;
-
-     display: flex;
-
-     justify-content: space-between;
-
-     align-items: center;
-
-     animation: slideIn .4s ease;
-
-}
-
-@keyframes slideIn {
-
-     from {
-
-          opacity: 0;
-
-          transform: translateX(-30px);
-
-     }
-
-     to {
-
-          opacity: 1;
-
-          transform: translateX(0);
-
-     }
-
-}
-
-.task.completed span {
-
-     text-decoration: line-through;
-
-     opacity: .6;
-
-}
-
-/* ===========================
-   Buttons
-=========================== */
-
-.actions {
-
-     display: flex;
-
-     gap: 10px;
-
-}
-
-.actions button {
+     height: 70px;
 
      border: none;
 
-     width: 40px;
+     border-radius: 18px;
 
-     height: 40px;
-
-     border-radius: 50%;
+     font-size: 24px;
 
      cursor: pointer;
 
-     color: white;
-
-     transition: .3s;
-
-}
-
-.edit {
-
-     background: #ff9800;
-
-}
-
-.delete {
-
-     background: #f44336;
-
-}
-
-.check {
-
-     background: #00c853;
-
-}
-
-.actions button:hover {
-
-     transform: scale(1.1);
-
-}
-
-/* ===========================
-   Bottom Button
-=========================== */
-
-.bottom-buttons {
-
-     margin-top: 25px;
-
-     text-align: center;
-
-}
-
-#clearBtn {
-
-     padding: 14px 35px;
-
-     border: none;
-
-     border-radius: 12px;
-
-     background: #e53935;
+     background: #2b2b2b;
 
      color: white;
 
-     cursor: pointer;
-
-     font-size: 16px;
-
-     transition: .3s;
-
+     transition: .2s;
 }
 
-#clearBtn:hover {
+button:hover {
 
-     background: #c62828;
+     transform: scale(1.06);
 
-     transform: translateY(-2px);
-
+     background: #444;
 }
 
-/* ===========================
-   Responsive
-=========================== */
+button:active {
 
-@media(max-width:650px) {
+     transform: scale(.95);
+}
 
-     .container {
+.operator {
 
-          padding: 25px;
+     background: #ff9500;
+}
 
+.operator:hover {
+
+     background: #ffaa33;
+}
+
+.equal {
+
+     background: #34c759;
+}
+
+.equal:hover {
+
+     background: #48d96b;
+}
+
+.zero {
+
+     grid-column: span 2;
+}
+
+@media(max-width:420px) {
+
+     .calculator {
+
+          width: 95%;
      }
 
-     .input-section {
+     button {
 
-          flex-direction: column;
-
+          height: 65px;
+          font-size: 22px;
      }
 
-     .stats {
+     .display input {
 
-          grid-template-columns: 1fr;
-
-     }
-
-     header h1 {
-
-          font-size: 30px;
-
-     }
-
-     .task {
-
-          flex-direction: column;
-
-          align-items: flex-start;
-
-          gap: 15px;
-
-     }
-
-     .actions {
-
-          width: 100%;
-
-          justify-content: flex-end;
-
+          height: 80px;
+          font-size: 34px;
      }
 
 }
