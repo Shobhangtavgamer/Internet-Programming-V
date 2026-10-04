@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inter", sans-serif;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, #dbeafe, transparent 35%),
+                radial-gradient(circle at bottom right, #ede9fe, transparent 35%),
+                #f8fafc;
+            color: #172033;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1050px;
+            margin: auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            width: 65px;
+            height: 65px;
+            margin: auto;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.25);
+        }
+        .header h1 {
+            margin-top: 18px;
+            font-size: 32px;
+            font-weight: 800;
+        }
+        .header p {
+            margin-top: 8px;
+            color: #64748b;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 28px;
+            padding: 38px;
+            box-shadow: 0 25px 70px rgba(15, 23, 42, 0.10);
+            backdrop-filter: blur(20px);
+        }
+        .section {
+            margin-bottom: 38px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+        .section-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+        .section-title h2 {
+            font-size: 18px;
+        }
+        .section-title p {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .full {
+            grid-column: 1 / -1;
+        }
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #334155;
+        }
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 13px 14px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: 0.25s ease;
+        }
+        .field textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: #6366f1;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.10);
+        }
+        .submit-area {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .submit-info {
+            color: #64748b;
+            font-size: 13px;
+        }
+        .submit-btn {
+            border: none;
+            border-radius: 14px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            box-shadow: 0 12px 25px rgba(79, 70, 229, 0.25);
+            transition: 0.25s ease;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 30px rgba(79, 70, 229, 0.35);
+        }
+        .required {
+            color: #ef4444;
+        }
+        @media (max-width: 700px) {
+            body {
+                padding: 20px 12px;
+            }
+            .card {
+                padding: 22px;
+                border-radius: 20px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .full {
+                grid-column: auto;
+            }
+            .header h1 {
+                font-size: 25px;
+            }
+            .submit-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .submit-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">🎓</div>
+        <h1>Student Registration</h1>
+        <p>Create your student profile and complete your registration.</p>
+    </div>
+    <div class="card">
+        <form method="POST">
+            <!-- PERSONAL INFORMATION -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-number">01</div>
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Tell us about yourself</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" name="name"
+                               placeholder="Enter your full name"
+                               required>
+                    </div>
+                    <div class="field">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" name="email"
+                               placeholder="student@example.com"
+                               required>
+                    </div>
+                    <div class="field">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="phone"
+                               placeholder="+91 XXXXX XXXXX"
+                               required>
+                    </div>
+                    <div class="field">
+                        <label>Date of Birth <span class="required">*</span></label>
+                        <input type="date" name="dob" required>
+                    </div>
+                    <div class="field">
+                        <label>Gender <span class="required">*</span></label>
+                        <select name="gender" required>
+                            <option value="">Select gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- CONTACT INFORMATION -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-number">02</div>
+                    <div>
+                        <h2>Contact Information</h2>
+                        <p>Your residential details</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="field full">
+                        <label>Address <span class="required">*</span></label>
+                        <textarea name="address"
+                                  placeholder="Enter your complete address"
+                                  required></textarea>
+                    </div>
+                    <div class="field">
+                        <label>City <span class="required">*</span></label>
+                        <input type="text" name="city"
+                               placeholder="Enter city"
+                               required>
+                    </div>
+                    <div class="field">
+                        <label>State <span class="required">*</span></label>
+                        <input type="text" name="state"
+                               placeholder="Enter state"
+                               required>
+                    </div>
+                    <div class="field">
+                        <label>Pincode <span class="required">*</span></label>
+                        <input type="text" name="pincode"
+                               placeholder="6-digit pincode"
+                               required>
+                    </div>
+                </div>
+            </div>
+            <!-- ACADEMIC INFORMATION -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-number">03</div>
+                    <div>
+                        <h2>Academic Information</h2>
+                        <p>Your educational details</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>Course <span class="required">*</span></label>
+                        <select name="course" required>
+                            <option value="">Select course</option>
+                            <option>
+                                B.E. Computer Engineering
+                            </option>
+                            <option>
+                                B.E. Information Technology
+                            </option>
+                            <option>
+                                B.E. Artificial Intelligence & Data Science
+                            </option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Branch <span class="required">*</span></label>
+                        <select name="branch" required>
+                            <option value="">Select branch</option>
+                            <option>Computer Engineering</option>
+                            <option>Information Technology</option>
+                            <option>AI & Data Science</option>
+                            <option>Electronics & Telecommunication</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Current Year <span class="required">*</span></label>
+                        <select name="year" required>
+                            <option value="">Select year</option>
+                            <option>First Year</option>
+                            <option>Second Year</option>
+                            <option>Third Year</option>
+                            <option>Fourth Year</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Roll Number <span class="required">*</span></label>
+                        <input type="text"
+                               name="roll_number"
+                               placeholder="Enter roll number"
+                               required>
+                    </div>
+                    <div class="field full">
+                        <label>College / University <span class="required">*</span></label>
+                        <input type="text"
+                               name="college"
+                               placeholder="Enter college or university name"
+                               required>
+                    </div>
+                </div>
+            </div>
+            <!-- GUARDIAN INFORMATION -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-number">04</div>
+                    <div>
+                        <h2>Parent / Guardian Details</h2>
+                        <p>Emergency contact information</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>Parent / Guardian Name <span class="required">*</span></label>
+                        <input type="text"
+                               name="guardian"
+                               placeholder="Enter guardian name"
+                               required>
+                    </div>
+                    <div class="field">
+                        <label>Guardian Phone <span class="required">*</span></label>
+                        <input type="tel"
+                               name="guardian_phone"
+                               placeholder="+91 XXXXX XXXXX"
+                               required>
+                    </div>
+                </div>
+            </div>
+            <!-- SUBMIT -->
+            <div class="submit-area">
+                <div class="submit-info">
+                    🔒 Your information will be handled securely.
+                </div>
+                <button type="submit" class="submit-btn">
+                    Complete Registration →
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

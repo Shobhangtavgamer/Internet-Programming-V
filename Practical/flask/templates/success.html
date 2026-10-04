@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Successful | Student Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Inter", sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px 15px;
+
+            background:
+                radial-gradient(circle at 10% 10%, #dbeafe, transparent 30%),
+                radial-gradient(circle at 90% 90%, #ede9fe, transparent 30%),
+                #f8fafc;
+
+            color: #172033;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+        }
+
+        /* CARD */
+
+        .card {
+            background: rgba(255, 255, 255, 0.94);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 30px;
+
+            padding: 45px;
+
+            text-align: center;
+
+            box-shadow:
+                0 30px 80px rgba(15, 23, 42, 0.12);
+
+            backdrop-filter: blur(20px);
+
+            animation: appear 0.6s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SUCCESS ICON */
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #dcfce7;
+
+            color: #16a34a;
+
+            font-size: 46px;
+            font-weight: 800;
+
+            box-shadow:
+                0 0 0 12px rgba(34, 197, 94, 0.08);
+
+            animation: pop 0.5s ease 0.2s both;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* TITLE */
+
+        h1 {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+
+            color: #64748b;
+
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        /* REGISTRATION ID */
+
+        .registration-id {
+            margin: 28px auto;
+
+            padding: 16px;
+
+            max-width: 420px;
+
+            border-radius: 16px;
+
+            background: linear-gradient(
+                135deg,
+                #eff6ff,
+                #f5f3ff
+            );
+
+            border: 1px solid #e0e7ff;
+        }
+
+        .registration-id span {
+            display: block;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            color: #64748b;
+
+            margin-bottom: 5px;
+        }
+
+        .registration-id strong {
+            font-size: 20px;
+
+            color: #4338ca;
+
+            letter-spacing: 1px;
+        }
+
+        /* DETAILS */
+
+        .details {
+            margin-top: 30px;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            text-align: left;
+        }
+
+        .details-title {
+            margin-bottom: 18px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+        .row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid #e2e8f0;
+
+            font-size: 14px;
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            color: #64748b;
+        }
+
+        .value {
+            font-weight: 600;
+
+            color: #1e293b;
+
+            text-align: right;
+
+            max-width: 60%;
+            word-break: break-word;
+        }
+
+        /* BUTTONS */
+
+        .actions {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 22px;
+
+            border-radius: 13px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+        .primary {
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #7c3aed
+            );
+
+            box-shadow:
+                0 10px 25px rgba(79, 70, 229, 0.25);
+        }
+
+        .primary:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 15px 30px rgba(79, 70, 229, 0.35);
+        }
+
+        .secondary {
+            color: #334155;
+
+            background: white;
+
+            border: 1px solid #e2e8f0;
+        }
+
+        .secondary:hover {
+            background: #f8fafc;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: 25px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 30px 20px;
+
+                border-radius: 22px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .success-icon {
+                width: 75px;
+                height: 75px;
+
+                font-size: 38px;
+            }
+
+            .row {
+                flex-direction: column;
+
+                gap: 5px;
+            }
+
+            .value {
+                max-width: 100%;
+
+                text-align: left;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <!-- SUCCESS ICON -->
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h1>
+                Registration Successful!
+            </h1>
+
+            <p class="subtitle">
+                Congratulations
+                <span class="highlight">{{ name }}</span>!
+                <br>
+                Your student registration has been successfully submitted.
+            </p>
+
+
+            <!-- REGISTRATION ID -->
+
+            <div class="registration-id">
+
+                <span>
+                    Registration Status
+                </span>
+
+                <strong>
+                    ✓ CONFIRMED
+                </strong>
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div class="details">
+
+                <div class="details-title">
+                    Registration Details
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Student Name
+                    </span>
+
+                    <span class="value">
+                        {{ name }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Email
+                    </span>
+
+                    <span class="value">
+                        {{ email }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Phone
+                    </span>
+
+                    <span class="value">
+                        {{ phone }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Date of Birth
+                    </span>
+
+                    <span class="value">
+                        {{ dob }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Gender
+                    </span>
+
+                    <span class="value">
+                        {{ gender }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Course
+                    </span>
+
+                    <span class="value">
+                        {{ course }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Branch
+                    </span>
+
+                    <span class="value">
+                        {{ branch }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Current Year
+                    </span>
+
+                    <span class="value">
+                        {{ year }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Roll Number
+                    </span>
+
+                    <span class="value">
+                        {{ roll_number }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        College / University
+                    </span>
+
+                    <span class="value">
+                        {{ college }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Guardian
+                    </span>
+
+                    <span class="value">
+                        {{ guardian }}
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span class="label">
+                        Guardian Phone
+                    </span>
+
+                    <span class="value">
+                        {{ guardian_phone }}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="actions">
+
+                <a href="/" class="btn primary">
+                    + Register Another Student
+                </a>
+
+                <button
+                    onclick="window.print()"
+                    class="btn secondary">
+                    🖨 Print
+                </button>
+
+            </div>
+
+
+            <div class="footer">
+
+                Your registration information has been received successfully.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
