@@ -1,0 +1,85 @@
+{% comment %} First store this file in the templates folder {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎉 Registration Successful!</h1>
+        <p class="subtitle">
+            Thank you for registering. Your details have been submitted successfully.
+        </p>
+        <div class="success-card">
+            {% if filename %}
+            <div class="photo">
+                <img
+                    src="{{ url_for('static', filename='uploads/' + filename) }}"
+                    alt="Student Photo"
+                    width="180">
+            </div>
+            {% endif %}
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td><strong>Full Name</strong></td>
+                    <td>{{ name }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td>{{ email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Phone</strong></td>
+                    <td>{{ phone }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Date of Birth</strong></td>
+                    <td>{{ dob }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Gender</strong></td>
+                    <td>{{ gender }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Course</strong></td>
+                    <td>{{ course }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Address</strong></td>
+                    <td>{{ address }}</td>
+                </tr>
+                <tr>
+                    <td><strong>City</strong></td>
+                    <td>{{ city }}</td>
+                </tr>
+                <tr>
+                    <td><strong>State</strong></td>
+                    <td>{{ state }}</td>
+                </tr>
+                <tr>
+                    <td><strong>PIN Code</strong></td>
+                    <td>{{ pincode }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Comments</strong></td>
+                    <td>{{ comments }}</td>
+                </tr>
+            </table>
+            <br>
+            <a href="/">
+                <button>
+                    Register Another Student
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

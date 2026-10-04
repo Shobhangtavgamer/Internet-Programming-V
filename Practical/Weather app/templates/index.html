@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flask Weather App</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="weather-card">
+
+            <h1>🌦 Weather App</h1>
+
+            <p class="subtitle">
+                Search weather by city
+            </p>
+
+            <form method="POST">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        name="city"
+                        placeholder="Enter City Name"
+                        required>
+
+                    <button type="submit">
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </form>
+
+            {% if error %}
+
+            <div class="error">
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+            {% if weather %}
+
+            <div class="result">
+
+                <h2>
+
+                    {{ weather.city }}, {{ weather.country }}
+
+                </h2>
+
+                <img
+                    src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"
+                    alt="Weather Icon">
+
+                <h3>
+
+                    {{ weather.description }}
+
+                </h3>
+
+                <div class="temperature">
+
+                    {{ weather.temperature }} °C
+
+                </div>
+
+                <table>
+
+                    <tr>
+
+                        <td>🌡 Feels Like</td>
+
+                        <td>{{ weather.feels_like }} °C</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>💧 Humidity</td>
+
+                        <td>{{ weather.humidity }} %</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>🌬 Wind Speed</td>
+
+                        <td>{{ weather.wind }} m/s</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>📊 Pressure</td>
+
+                        <td>{{ weather.pressure }} hPa</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+Student-Registration-Flask/
+│── app.py
+│── requirements.txt
+│
+├── templates/
+│   ├── index.html
+│   └── success.html
+│
+├── static/
+│   ├── style.css
