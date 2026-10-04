@@ -1,0 +1,7 @@
+<!ELEMENT student (rollno, name, branch, semester, email)>
+
+<!ELEMENT rollno (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT branch (#PCDATA)>
+<!ELEMENT semester (#PCDATA)>
+<!ELEMENT email (#PCDATA)>

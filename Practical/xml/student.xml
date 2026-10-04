@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE student SYSTEM "student.dtd">
+
+<student>
+     <rollno>540</rollno>
+     <name>Shobhan Kar</name>
+     <branch>Computer Engineering</branch>
+     <semester>3</semester>
+     <email>shobhan@example.com</email>
+</student>
